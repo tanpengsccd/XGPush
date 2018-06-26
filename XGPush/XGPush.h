@@ -152,7 +152,7 @@ typedef NS_OPTIONS(NSUInteger, XGUserNotificationTypes) {
  */
 + (nullable instancetype)configureNotificationWithCategories:(nullable NSSet<XGNotificationCategory *> *)categories types:(XGUserNotificationTypes)types;
 
-
+- (nonnull instancetype)init NS_UNAVAILABLE;
 /**
  @brief 返回消息通知栏配置对象
  */
@@ -168,8 +168,6 @@ typedef NS_OPTIONS(NSUInteger, XGUserNotificationTypes) {
  @brief 默认的注册推送的样式类型
  */
 @property (readonly, nonatomic) XGUserNotificationTypes defaultTypes;
-
-- (nullable instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -213,7 +211,6 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
  */
 - (void)xgPushDidUnbindWithIdentifier:(nullable NSString *)identifier type:(XGPushTokenBindType)type error:(nullable NSError *)error;
 
-
 @end
 
 @interface XGPushTokenManager : NSObject
@@ -227,19 +224,10 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
 + (nonnull instancetype)defaultTokenManager;
 
 - (nonnull instancetype)init NS_UNAVAILABLE;
-
-/**
- @brief 将接收到的设备token注册给token管理对象
-
- @param deviceToken 设备的token，这个参数来来源于Application delegate 的didRegisterForRemoteNotificationsWithDeviceToken:方法中
- @note 此方法是必须在上述回调中调用，否则将导致信鸽服务无法推送消息到指定的设备, 3.0中此方法可以不需要手动在didRegisterForRemoteNotificationsWithDeviceToken调用，SDK内部处理
- */
-- (void)registerDeviceToken:(nonnull NSData *)deviceToken;
-
 /**
  @brief 设备token管理操作的代理对象
  */
-@property (weak, nonatomic, nullable) id<XGPushTokenManagerDelegate> delegatge;
+@property (weak, nonatomic, nullable) id<XGPushTokenManagerDelegate> delegate;
 
 /**
  @brief 返回当前设备token的字符串
@@ -283,7 +271,7 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 /**
- 处理iOS 10 UNUserNotification.framework的对应的方法
+  @brief 处理iOS 10 UNUserNotification.framework的对应的方法
 
  @param center [UNUserNotificationCenter currentNotificationCenter]
  @param notification 通知对象
@@ -293,7 +281,7 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
 
 
 /**
- 处理iOS 10 UNUserNotification.framework的对应的方法
+  @brief 处理iOS 10 UNUserNotification.framework的对应的方法
 
  @param center [UNUserNotificationCenter currentNotificationCenter]
  @param response 用户对通知消息的响应对象
@@ -336,6 +324,14 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
  @param error 设置失败的信息
  */
 - (void)xgPushDidSetBadge:(BOOL)isSuccess error:(nullable NSError *)error;
+
+/**
+ @brief 注册设备token的回调
+ 
+ @param deviceToken 当前设备的token
+ @param error 错误信息
+ */
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
 
 @end
 
@@ -416,9 +412,20 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
  @brief 上报当前App角标数到信鸽服务器
 
  @param badgeNumber 应用的角标数
- @note (后台维护中)此接口是为了实现角标+1的功能，服务器会在这个数值基础上进行角标数新增的操作，调用成功之后，会覆盖之前值。
+ @note (后台维护中)此接口是为了实现角标+1的功能，服务器会在这个数值基础上进行角标数新增的操作，调用成功之后，会覆盖之前值
  */
 - (void)setBadge:(NSInteger)badgeNumber;
+
+
+/**
+ @brief 上报推送消息的用户行为
+
+ @param identifier 用户行为标识
+ @note 此接口即统计推送消息中开发者预先设置或者是系统预置的行为标识，可以了解到用户是如何处理推送消息的，又统计消息的点击次数
+ */
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+- (void)reportXGNotificationResponse:(nullable UNNotificationResponse *)response __IOS_AVAILABLE(10.0);
+#endif
 
 /**
  @brief 查询设备通知权限是否被用户允许
@@ -429,7 +436,7 @@ typedef NS_ENUM(NSUInteger, XGPushTokenBindType) {
 - (void)deviceNotificationIsAllowed:(nonnull void (^)(BOOL isAllowed))handler;
 
 /**
- 查看SDK的版本
+ @brief 查看SDK的版本
 
  @return sdk版本号
  */
