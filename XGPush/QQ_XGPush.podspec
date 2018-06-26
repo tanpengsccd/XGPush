@@ -9,6 +9,6 @@ Pod::Spec.new do |spec|
   spec.frameworks				= "CFNetwork", "SystemConfiguration", "CoreTelephony", "CoreGraphics", "Foundation", "UserNotifications"
   spec.libraries				= "z", "sqlite3"
   spec.source					= { :git => "https://github.com/tegdata/XGPush.git", :tag => spec.version }
-  spec.source_files				= "XGPush/**/*.h"
-  spec.vendored_libraries		= "XGPush/**/*.a"
+  spec.source_files				= "XGPush/*.h"
+  spec.vendored_libraries		= "XGPush/*.a"
 end
