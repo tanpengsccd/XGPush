@@ -1,0 +1,6 @@
+framework module XGPush {
+  umbrella header "XGPush.h"
+  export *
+  link "z"
+  link "sqlite3"
+}

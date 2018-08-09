@@ -1,0 +1,6 @@
+framework module Pods_XGPushSDK_Example {
+  umbrella header "Pods-XGPushSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

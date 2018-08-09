@@ -1,0 +1,6 @@
+framework module Pods_XGPushSDK_Tests {
+  umbrella header "Pods-XGPushSDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

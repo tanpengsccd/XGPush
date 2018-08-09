@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		136A615F7A4A622C31E9A7D7 /* Pods-XGPushSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGPushSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XGPushSDK_Example/Pods-XGPushSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2737B9CC7BA1C010A74D429D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2737B9CC7BA1C010A74D429D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4AEF3047C62C2F2D59B137A0 /* Pods-XGPushSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGPushSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XGPushSDK_Example/Pods-XGPushSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4C123BA79FCD06526DAB8AD0 /* Pods-XGPushSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGPushSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XGPushSDK_Tests/Pods-XGPushSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		59EF2F535A1DBD7551AB6B4D /* Pods_XGPushSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XGPushSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,10 +43,10 @@
 		607FACE51AFB9204008FA782 /* XGPushSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XGPushSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7CDD7D0B6AC41AC21054E7C4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7CDD7D0B6AC41AC21054E7C4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9585BBD9D034C02ACD4DEC72 /* Pods-XGPushSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGPushSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XGPushSDK_Tests/Pods-XGPushSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2C4539AFD4DDFC0CBEFCB9 /* Pods_XGPushSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XGPushSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4764FEB19C869B825456A46 /* XGPushSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XGPushSDK.podspec; path = ../XGPushSDK.podspec; sourceTree = "<group>"; };
+		E4764FEB19C869B825456A46 /* XGPushSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XGPushSDK.podspec; path = ../XGPushSDK.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,6 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				0A7EF66FC45408A6E8ADC48C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,10 +211,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = S88X462LQ7;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = S88X462LQ7;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -261,24 +262,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A7EF66FC45408A6E8ADC48C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-XGPushSDK_Example/Pods-XGPushSDK_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/XGPushSDK/XGPushSDK.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XGPushSDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XGPushSDK_Example/Pods-XGPushSDK_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B01F12F4BD9846ACE8E22C5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +452,7 @@
 			baseConfigurationReference = 4AEF3047C62C2F2D59B137A0 /* Pods-XGPushSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S88X462LQ7;
 				INFOPLIST_FILE = XGPushSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -484,6 +468,7 @@
 			baseConfigurationReference = 136A615F7A4A622C31E9A7D7 /* Pods-XGPushSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S88X462LQ7;
 				INFOPLIST_FILE = XGPushSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -498,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9585BBD9D034C02ACD4DEC72 /* Pods-XGPushSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = S88X462LQ7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -520,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C123BA79FCD06526DAB8AD0 /* Pods-XGPushSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = S88X462LQ7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

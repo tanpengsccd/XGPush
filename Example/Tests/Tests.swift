@@ -1,5 +1,5 @@
 import XCTest
-import XGPushSDK
+//import XGPushSDK
 
 class Tests: XCTestCase {
     

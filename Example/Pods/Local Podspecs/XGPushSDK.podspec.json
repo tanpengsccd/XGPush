@@ -1,0 +1,32 @@
+{
+  "name": "XGPushSDK",
+  "version": "3.1.1",
+  "summary": "腾讯信鸽（XG Push）for swift OC",
+  "homepage": "http://xg.qq.com",
+  "authors": "tencent TEG",
+  "license": "MIT",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "CoreGraphics",
+    "Foundation",
+    "UserNotifications"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3"
+  ],
+  "description": "腾讯信鸽（XG Push）for  swift OC",
+  "source": {
+    "git": "https://github.com/tanpengsccd/XGPush.git",
+    "tag": "3.1.1"
+  },
+  "source_files": "XGPushSDK/**/*.h",
+  "vendored_libraries": "XGPushSDK/**/*.a",
+  "public_header_files": "XGPushSDK/**/*.h",
+  "preserve_paths": "XGPushSDK/module.modulemap"
+}

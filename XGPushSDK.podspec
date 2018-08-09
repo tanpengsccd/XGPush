@@ -8,30 +8,25 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XGPushSDK'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of XGPushSDK.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.version					= "3.1.1"
+  s.summary					= "腾讯信鸽（XG Push）for swift OC"
+  s.homepage					= "http://xg.qq.com"
+  s.authors					= "tencent TEG"
+  s.license					= "MIT"
+  s.platform					= :ios, "6.0"
+  s.frameworks				= "CFNetwork", "SystemConfiguration", "CoreTelephony", "CoreGraphics", "Foundation", "UserNotifications"
+  s.libraries				= "z", "sqlite3"
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  腾讯信鸽（XG Push）for  swift OC
                        DESC
 
-  s.homepage         = 'https://github.com/tanpengsccd/XGPushSDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'tanpengsccd' => 'tanpegncd@gmail.com' }
-  s.source           = { :git => 'https://github.com/tanpengsccd/XGPushSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.source           = { :git => 'https://github.com/tanpengsccd/XGPush.git', :tag => s.version.to_s }
 
-  s.source_files = 'XGPushSDK/Classes/**/*'
-  
+  s.source_files          = 'XGPushSDK/**/*.h'
+  s.vendored_libraries		= 'XGPushSDK/**/*.a'
+  s.public_header_files = "XGPushSDK/**/*.h"
+  s.preserve_paths =  'XGPushSDK/module.modulemap'
   # s.resource_bundles = {
   #   'XGPushSDK' => ['XGPushSDK/Assets/*.png']
   # }
@@ -39,4 +34,23 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  # s.prepare_command = <<-EOF
+  
+
+  # # 创建XGPush Module
+  # rm -rf XGPushSDK/Modules
+  # mkdir XGPushSDK/Modules
+  # touch XGPushSDK/Modules/module.modulemap
+  # cat <<-EOF > XGPushSDK/Modules/module.modulemap
+  # framework module XGPush {
+  #   umbrella header "XGPush.h"
+  #   export *
+  #   link "z"
+  #   link "sqlite3"
+  # }
+  # \EOF
+
+  # EOF
+
+
 end
